@@ -1,5 +1,5 @@
 from fraction import Fraction
-from fraction import hdigit
+from harmonic import hdigit
 
 # Test basic math operations
 f1 = Fraction(1, 2) 
