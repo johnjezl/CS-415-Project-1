@@ -1,3 +1,5 @@
+from gcd import gcd
+
 # Class: Fraction
 #   Fraction arithmetic allowing numerator and denominator of
 #   arbitrary size integers.
@@ -12,22 +14,12 @@ class Fraction:
         self.numerator = numerator
         self.denominator = denominator
 
-    # Greatest common divisor (Euclidean algorithm)
-    def _gcd(self, a, b):
-        a = abs(a)
-        b = abs(b)
-        while b:
-            temp = b
-            b = a % b
-            a = temp
-        return a
-
     # Reduce fraction to lowest terms
     def _reduce(self, p, q):
         if (p == 0):
             return 0, 1
 
-        g = self._gcd(p, q)
+        g = gcd(p, q)
 
         p = p // g
         q = q // g

@@ -1,14 +1,7 @@
 import random
 from primality import *
 from random_prime_generator import generate_random_prime
-
-def gcd(a, b):
-    if (a < b):
-        return gcd(b, a)
-    if b == 0:
-        return a
-    else:
-        return gcd(b, a % b)
+from gcd import gcd 
 
 def find_inverse(a, b):
     x, y, d = e_gcd(b, a)
