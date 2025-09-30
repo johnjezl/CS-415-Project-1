@@ -1,12 +1,43 @@
 from rsa import *
-from fraction import *
+from fraction import Fraction
+from harmonic import hdigit
 
 def problem1():
-    # incomplete
     print()
     print("Fractions")
     print("=================")
-    return
+    print("You will enter 2 fractions, then they will be added, subtracted, multiplied, and divided")
+
+    # create fractions
+    num_a = int(input("Enter numerator A: "))
+    denom_a = int(input("Enter denominator A (non-zero): "))
+    num_b = int(input("Enter numerator B: "))
+    denom_b = int(input("Enter denominator B (non-zero): "))
+    a = Fraction(num_a, denom_a)
+    b = Fraction(num_b, denom_b)
+
+    # test operators
+    print(f"A + B = {a.add(b)}")
+    print(f"A - B = {a.subtract(b)}")
+    print(f"A * B = {a.multiply(b)}")
+    print(f"A / B = {a.divide(b)}")
+
+    print(f"A == B: {a.equals(b)}")
+    print(f"A < B: {a.less_than(b)}")
+
+    # test digit extraction
+    print("Now it will print the nth decimal digit of A and B")
+    dec_digit = int(input("Enter n: "))
+    print(f"{dec_digit}th digit of A: {a.get_decimal_digit(dec_digit)}")
+    print(f"{dec_digit}th digit of B: {b.get_decimal_digit(dec_digit)}")
+
+    # test harmonic sum
+    print("Now it will print the mth digit of the harmonic sum Hn")
+    digit_m = int(input("Enter m: "))
+    series_n = int(input("Enter n: "))
+    print(f"{digit_m}th digit of H{series_n}: {hdigit(series_n, digit_m)}")
+
+    return menu()
 
 def problem2():
     print()
