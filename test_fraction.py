@@ -1,20 +1,35 @@
 from fraction import Fraction
+from fraction import hdigit
 
 # Test basic math operations
-f1 = Fraction(1, 2)  # 1/2
-f2 = Fraction(1, 3)  # 1/3
+f1 = Fraction(1, 2) 
+f2 = Fraction(1, 3) 
 
-print(f"1/2 + 1/3 = {f1.add(f2)}")  # Should be 5/6
-print(f"1/2 - 1/3 = {f1.subtract(f2)}")  # Should be 1/6
-print(f"1/2 * 1/3 = {f1.multiply(f2)}")  # Should be 1/6
-print(f"1/2 / 1/3 = {f1.divide(f2)}")  # Should be 3/2
+print(f"Reduced form of 4/8: {Fraction(4, 8)}")
+print(f"Reduced form of 8/4: {Fraction(8, 4)}")
 
-print(f"1/2 == 1/3: {f1.equals(f2)}")  # False
-print(f"1/2 < 1/3: {f1.less_than(f2)}")   # False
+print(f"1/2 + 1/3 = {f1.add(f2)}") 
+print(f"1/2 - 1/3 = {f1.subtract(f2)}") 
+print(f"1/2 * 1/3 = {f1.multiply(f2)}") 
+print(f"1/2 / 1/3 = {f1.divide(f2)}")
+
+print(f"1/2 == 1/3: {f1.equals(f2)}") 
+print(f"1/2 < 1/3: {f1.less_than(f2)}") 
+print(f"1/3 < 1/2: {f2.less_than(f1)}") 
 
 # Test digit extraction
-print(f"First digit of 1/2: {f1.get_decimal_digit(1)}")  # Should be 5
-print(f"Second digit of 1/3: {f2.get_decimal_digit(2)}")  # Should be 3
+print(f"First digit of 1/2: {f1.get_decimal_digit(1)}") 
+print(f"Second digit of 1/3: {f2.get_decimal_digit(2)}")
 
 # Test harmonic sum
-print(f"5th digit of H3: {Fraction.hdigit(3, 5)}")
+print(f"5th digit of H3: {hdigit(3, 5)}")
+
+p = 53362913282294785045591045624042980409652472280384260097101349248456268889497101757506097901985035691409088731550468098378442172117885009464302344326566022502100278425632852081405544941210442510142672770294774712708917963967779610453224692426866468888281582071984897105110796873249319155529397017508931564519976085734473014183284011724412280649074307703736683170055800293659235088589360235285852808160759574737836655413175508131522517
+q = 7128865274665093053166384155714272920668358861885893040452001991154324087581111499476444151913871586911717817019575256512980264067621009251465871004305131072686268143200196609974862745937188343705015434452523739745298963145674982128236956232823794011068809262317708861979540791247754558049326475737829923352751796735248042463638051137034331214781746850878453485678021888075373249921995672056932029099390891687487672697950931603520000
+f3 = Fraction(p, q)
+f4 = Fraction(p, q)
+print(f"Fraction p/q: {f3}")
+print(f"big fraction - big fraction: {f4.subtract(f3)}")
+print(f"big fraction == big fraction: {f4.equals(f3)}")
+print(f"10th digit of {p}/{q}: {f3.get_decimal_digit(10)}")
+

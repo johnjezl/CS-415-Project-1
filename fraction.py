@@ -8,21 +8,27 @@ class Fraction:
         if denominator == 0:
             raise ValueError("Denominator can't be 0")
 
+        numerator, denominator = self._reduce(numerator, denominator)
         self.numerator = numerator
         self.denominator = denominator
 
     # Greatest common divisor (Euclidean algorithm)
     def _gcd(self, a, b):
         a = abs(a)
-        b = abs(a)
+        b = abs(b)
         while b:
-            a = b
+            temp = b
             b = a % b
+            a = temp
         return a
 
     # Reduce fraction to lowest terms
     def _reduce(self, p, q):
+        if (p == 0):
+            return 0, 1
+
         g = self._gcd(p, q)
+
         p = p // g
         q = q // g
 
@@ -94,30 +100,29 @@ class Fraction:
             remainder = remainder % q
         return digit
 
-    # Calculate the harmonic sum for the first n elements
-    @classmethod
-    def hsum(cls, n):
-        if n <= 0:
-            raise ValueError("n must be positive")
-
-        result = cls(0, 1) 
-
-        for j in range(1, n + 1):
-            term = cls(1, j)
-            result = result.add(term)
-
-        return result
-
-    # Get the m-th digit of the n-th harmonic number
-    @classmethod
-    def hdigit(cls, n, m):
-        if n <= 0 or m <= 0:
-            raise ValueError("n and m must be positive")
-
-        harmonic = cls.hsum(n)
-        return harmonic.get_decimal_digit(m)
-
     def __str__(self):
         if self.denominator == 1:
             return str(self.numerator)
         return f"{self.numerator}/{self.denominator}"
+
+
+# Calculate the harmonic sum for the first n elements
+def hsum(n):
+    if n <= 0:
+        raise ValueError("n must be positive")
+
+    result = Fraction(0, 1) 
+
+    for j in range(1, n + 1):
+        term = Fraction(1, j)
+        result = result.add(term)
+
+    return result
+
+# Get the m-th digit of the n-th harmonic number
+def hdigit(n, m):
+    if n <= 0 or m <= 0:
+        raise ValueError("n and m must be positive")
+
+    harmonic = hsum(n)
+    return harmonic.get_decimal_digit(m)
