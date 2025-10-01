@@ -3,6 +3,18 @@ from fraction import Fraction
 from harmonic import hdigit
 from primality import *
 
+# problem 1 test function
+# inputs: n/a
+# pre-conditions: n/a
+# output: n/a
+# pseudocode:
+#   print fraction header
+#   get 2 fractions (a and b) from user
+#   print result of: a + b, a - b, a * b, a / b, a == b, a < b
+#   print nth decimal digit of a and b
+#   print mth digit of harmonic sum Hn
+#   return to menu
+
 def problem1_tester():
     print()
     print("Fractions")
@@ -40,6 +52,17 @@ def problem1_tester():
 
     return menu()
 
+# problem 2 test function
+# inputs: n/a
+# pre-conditions: n/a
+# output: n/a
+# pseudocode:
+#   print primality header
+#   get number and test precision from user
+#   call primality3(number, precision)
+#   print results
+#   return to menu
+
 def problem2_tester():
     print()
     print("Primality testing")
@@ -52,6 +75,22 @@ def problem2_tester():
         print("No, this number is not prime")
 
     return menu()
+
+# problem 5 test function
+# inputs: n/a
+# pre-conditions: n/a
+# output: n/a
+# pseudocode:
+#   print rsa header
+#   get # of bits for prime factors, precision, and message from user
+#   generate rsa keys
+#   call rsa function
+#   print encrypted and decrypted messages
+#   if decrypted message matches original message
+#       print success
+#   else
+#       print failure
+#   return to menu
 
 def problem5_tester():
     print()
@@ -71,12 +110,24 @@ def problem5_tester():
     print ("p = ", factor1, ", q = ", factor2, ", N = ", mod, ", E = ", encryption_key, ", D = ", decryption_key)
     print("Encrypted message: ", encrypted)
     print("Decrypted message: ", decrypted)
-    if (message == decrypted):
+    if message == decrypted:
         print("Yes, the message was correctly decrypted")
     else:
         print("No, the message was not correctly decrypted")
 
     return menu()
+
+# main menu
+# inputs: n/a
+# pre-conditions: n/a
+# outputs: n/a
+# pseudocode:
+#   print menu options
+#   get input
+#   loop if input is invalid
+#       get new input
+#   call relevant tester function for input = 1, 2 or 3
+#   exit on input = 4
 
 def menu():
     # print menu
