@@ -11,8 +11,9 @@ from gcd import gcd
 #   a and b are relatively prime (gcd(a,b) = 1)
 #   base
 # output:
-#   y such that a * y = 1 (mod b)
-#   1 <= y < b
+#   y
+# relationship:
+#   a * y = 1 (mod b), 1 <= y < b
 # pseudocode:
 #   call extended gcd to find x, y s.t. b * x + a * y = gcd(a, b)
 #   if y is negative, add b until it's positive
@@ -31,8 +32,9 @@ def find_inverse(a, b):
 #   x and y are positive integers
 #   x > y
 # outputs:
-#   a, b, d such that (a * x) + (b * y) = d
-#    and gcd(x, y) = d
+#   a, b, d
+# relationship:
+#    (a * x) + (b * y) = d, and gcd(x, y) = d
 # pseudocode:
 #   if y == 0 (base case)
 #       return 1, 0, x
@@ -47,14 +49,16 @@ def e_gcd(x, y):
 
 # problem 4 main function
 # inputs:
-#   bits (number of bits prime factors should be)
+#   n_bits (number of bits prime factors should be)
 #   precision (precision used by prime generator)
 # pre-conditions:
 #   bits and precision are positive integers
 # outputs:
-#   factor1, factor2 (prime factors of modulus key)
-#   mod (modulus key)
-#   e_key, d_key (encryption and decryption exponents)
+#   factor1, factor2, mod_key, e_key, d_key
+# relationships:
+#   mod_key = factor1 * factor2
+#   factor1 and factor2 have n_bits bits
+#   e_key, d_key such that (a^e_key)^d_key = a (mod mod_key)
 # pseudocode:
 #   get 2 prime factors, f1, f2
 #   modulus = f1*f2
@@ -67,11 +71,11 @@ def e_gcd(x, y):
 #               break out of loop
 #   return f1, f2, modulus, e, d
 
-def generate_rsa_keys(bits, precision):
+def generate_rsa_keys(n_bits, precision):
     # generate primes and compute mods to be used
-    factor1 = generate_random_prime(bits, precision)
-    factor2 = generate_random_prime(bits, precision)
-    mod = factor1 * factor2
+    factor1 = generate_random_prime(n_bits, precision)
+    factor2 = generate_random_prime(n_bits, precision)
+    mod_key = factor1 * factor2
     exp_mod = (factor1 - 1) * (factor2 - 1)
 
     while True:
@@ -84,7 +88,7 @@ def generate_rsa_keys(bits, precision):
             if d_key == 1:
                 continue
             else:
-                return factor1, factor2, mod, e_key, d_key
+                return factor1, factor2, mod_key, e_key, d_key
 
 # problem 5 main function
 # inputs:
@@ -98,7 +102,7 @@ def generate_rsa_keys(bits, precision):
 #   message is non-negative and less than mod_key
 # outputs:
 #   encrypted message and decrypted message
-# pseudocode:
+# pseudocode/relationships:
 #   encrypted = m^e_key mod mod_key
 #   decrypted = encrypted^d_key mod mod_key
 
