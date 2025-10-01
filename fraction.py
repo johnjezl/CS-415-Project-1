@@ -5,7 +5,7 @@ from modular_operations import gcd
 # __init__(numerator, denominator)
 #   Input: numerator (integer), denominator (integer, default 1)
 #   Output: None
-#   Relationship:
+#   Relationship: initializes a Fraction object
 #   Pre-Condition: denominator != 0
 #   if denominator == 0 
 #       raise exception
@@ -15,7 +15,7 @@ from modular_operations import gcd
 # _reduce(p, q)
 #   Input: p (integer), q (integer)
 #   Output: two integers (reduced_p, reduced_q) that represent the reduced form of p/q
-#   Relationship:
+#   Relationship:  reduces the fraction p/q to its lowest terms
 #   Pre-Condition: q != 0
 #   if p == 0
 #       return (0, 1)
@@ -28,8 +28,8 @@ from modular_operations import gcd
 # add(rhs)
 #   Input: rhs (Fraction)
 #   Output: Fraction that is the sum of self and rhs
-#   Relationship:
-#   Pre-Condition: 
+#   Relationship: (a/b) + (c/d) = (a*d + b*c) / (b*d)
+#   Pre-Condition: Valid Fraction objects
 #   numerator = self.numerator * rhs.denominator + rhs.numerator * self.denominator
 #   denominator = self.denominator * rhs.denominator
 #   return new Fraction(numerator, denominator)
@@ -37,8 +37,8 @@ from modular_operations import gcd
 # subtract(rhs)
 #   Input: rhs (Fraction)
 #   Output: Fraction that is the difference of self and rhs
-#   Relationship: 
-#   Pre-Condition: 
+#   Relationship:  (a/b) - (c/d) = (a*d - b*c) / (b*d)
+#   Pre-Condition: Valid Fraction objects
 #   numerator = self.numerator * rhs.denominator - rhs.numerator * self.denominator
 #   denominator = self.denominator * rhs.denominator
 #   return new Fraction(numerator, denominator)
@@ -46,8 +46,8 @@ from modular_operations import gcd
 # multiply(rhs)
 #   Input: rhs (Fraction)
 #   Output: Fraction that is the product of self and rhs
-#   Relationship: 
-#   Pre-Condition: 
+#   Relationship:  (a/b) * (c/d) = (a*c) / (b*d)
+#   Pre-Condition:  Valid Fraction objects
 #   numerator = self.numerator * rhs.numerator
 #   denominator = self.denominator * rhs.denominator
 #   return new Fraction(numerator, denominator)
@@ -55,7 +55,7 @@ from modular_operations import gcd
 # divide(rhs)
 #   Input: rhs (Fraction)
 #   Output: Fraction is the quotient of self and rhs
-#   Relationship: 
+#   Relationship:  (a/b) / (c/d) = (a*d) / (b*c)
 #   Pre-Condition: rhs.numerator != 0
 #   if rhs.numerator == 0 
 #       raise exception
@@ -66,21 +66,21 @@ from modular_operations import gcd
 # equals(rhs)
 #   Input: rhs (Fraction)
 #   Output: boolean - true if self == rhs, false otherwise
-#   Relationship: 
+#   Relationship:  two fractions are equal if their numerators and denominators are equal
 #   Pre-Condition: rhs is a Fraction, both fractions are in reduced form
 #   return self.numerator == rhs.numerator and self.denominator == rhs.denominator
 #
 # less_than(rhs)
 #   Input: rhs (Fraction)
 #   Output: boolean - true if self < rhs, false otherwise
-#   Relationship: 
-#   Pre-Condition:
+#   Relationship:  (a/b) < (c/d) iff (a*d) < (b*c) 
+#   Pre-Condition: rhs is a Fraction, both fractions are in reduced form
 #   return self.numerator * rhs.denominator < rhs.numerator * self.denominator
 #
 # get_decimal_digit(n)
 #   Input: n (position after decimal point)
 #   Output: integer (single digit 0-9)
-#   Relationship:
+#   Relationship: returns the n-th digit after the decimal point in the decimal representation of the fraction
 #   Pre-Condition: n > 0, self.denominator != 0
 #   if denominator == 0
 #       raise exception
