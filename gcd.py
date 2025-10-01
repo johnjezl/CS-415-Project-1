@@ -4,7 +4,9 @@
 # pre-conditions:
 #   a and b are non-negative integers
 # output:
-#   the greatest common factor of a and b
+#   d
+# relationships:
+#   d is the greatest common factor of a and b
 #   i.e. the largest d such that a / d and b / d are integers
 # pseudocode:
 #   if a < b

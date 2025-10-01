@@ -4,9 +4,7 @@ from harmonic import hdigit
 from primality import *
 
 # problem 1 test function
-# inputs: n/a
-# pre-conditions: n/a
-# output: n/a
+# inputs/pre-conditions/outputs/relationships: n/a
 # pseudocode:
 #   print fraction header
 #   get 2 fractions (a and b) from user
@@ -53,9 +51,7 @@ def problem1_tester():
     return menu()
 
 # problem 2 test function
-# inputs: n/a
-# pre-conditions: n/a
-# output: n/a
+# inputs/pre-conditions/outputs/relationships: n/a
 # pseudocode:
 #   print primality header
 #   get number and test precision from user
@@ -77,9 +73,7 @@ def problem2_tester():
     return menu()
 
 # problem 5 test function
-# inputs: n/a
-# pre-conditions: n/a
-# output: n/a
+# inputs/pre-conditions/outputs/relationships: n/a
 # pseudocode:
 #   print rsa header
 #   get # of bits for prime factors, precision, and message from user
