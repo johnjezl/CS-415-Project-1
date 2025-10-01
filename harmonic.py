@@ -1,5 +1,30 @@
 from fraction import Fraction
 
+# Pseudocode for harmonic.py
+#
+# hsum(n)
+#   Input: n (integer)
+#   Output: Fraction - the harmonic sum of the first n elements
+#   Relationship: 
+#   Precondition: n > 0
+#   if n <= 0 
+#       raise exception
+#   result = Fraction(0, 1)
+#   for j from 1 to n
+#     term = Fraction(1, j)
+#     result = result.add(term)
+#   return result
+#
+# hdigit(n, m)
+#   Input: n (integer), m (integer)
+#   Output: integer - the m-th digit of the n-th harmonic number (0-9)
+#   Relationship: 
+#   Precondition: n > 0, m > 0
+#   if n <= 0 or m <= 0
+#       raise exception
+#   harmonic = hsum(n)
+#   return harmonic.get_decimal_digit(m)
+
 # Calculate the harmonic sum for the first n elements
 def hsum(n):
     if n <= 0:

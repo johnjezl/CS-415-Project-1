@@ -1,6 +1,24 @@
 import random
 from primality import primality3
 
+# Pseudocode for random_prime_generator.py
+#
+# generate_random_prime(n, k)
+#   Input: n (integer, number of bits), k (integer, # of test iterations)
+#   Output: integer (n-bit prime number)
+#   Pre-Confdtion: n >= 2, k > 0
+#   Relationship:
+#   while True
+#     binary_string = empty string
+#     for i from 0 to n-3
+#       random_bit = randomly choose '0' or '1'
+#       binary_string = binary_string + random_bit
+#     binary_string = append 1 to make odd
+#     binary_string = prepend 1 to make n bits
+#     result = convert binary_string to decimal
+#     if primality3(result, k) == "yes"
+#       return result
+
 # Generate a random n-bit prime number
 def generate_random_prime(n, k):
     while True:
