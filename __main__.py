@@ -1,18 +1,19 @@
 from rsa import *
 from fraction import Fraction
 from harmonic import hdigit
+from primality import *
 
-def problem1():
+def problem1_tester():
     print()
     print("Fractions")
     print("=================")
-    print("You will enter 2 fractions, then they will be added, subtracted, multiplied, and divided")
+    print("Enter 2 fractions")
 
     # create fractions
-    num_a = int(input("Enter numerator A: "))
-    denom_a = int(input("Enter denominator A (non-zero): "))
-    num_b = int(input("Enter numerator B: "))
-    denom_b = int(input("Enter denominator B (non-zero): "))
+    num_a = int(input("Numerator A: "))
+    denom_a = int(input("Denominator A (non-zero): "))
+    num_b = int(input("Numerator B: "))
+    denom_b = int(input("Denominator B (non-zero): "))
     a = Fraction(num_a, denom_a)
     b = Fraction(num_b, denom_b)
 
@@ -26,20 +27,20 @@ def problem1():
     print(f"A < B: {a.less_than(b)}")
 
     # test digit extraction
-    print("Now it will print the nth decimal digit of A and B")
+    print("Select nth decimal digit to display")
     dec_digit = int(input("Enter n: "))
     print(f"{dec_digit}th digit of A: {a.get_decimal_digit(dec_digit)}")
     print(f"{dec_digit}th digit of B: {b.get_decimal_digit(dec_digit)}")
 
     # test harmonic sum
-    print("Now it will print the mth digit of the harmonic sum Hn")
+    print("Select mth digit of the harmonic sum Hn to display")
     digit_m = int(input("Enter m: "))
     series_n = int(input("Enter n: "))
     print(f"{digit_m}th digit of H{series_n}: {hdigit(series_n, digit_m)}")
 
     return menu()
 
-def problem2():
+def problem2_tester():
     print()
     print("Primality testing")
     print("=================")
@@ -52,7 +53,7 @@ def problem2():
 
     return menu()
 
-def problem5():
+def problem5_tester():
     print()
     print("RSA")
     print("=================")
@@ -89,21 +90,17 @@ def menu():
     print("Enter 1, 2, 3, or 4: ")
 
     # get input and validate
-    usr_input = 0
-    while True:
-        usr_input = int(input())
-        if usr_input not in [1, 2, 3, 4]:
-            print("Invalid input, enter 1, 2, 3, or 4: ")
-        else:
-            break
+    usr_input = int(input())
+    while usr_input not in [1, 2, 3, 4]:
+        usr_input = int(input("Invalid input, enter 1, 2, 3, or 4: "))
 
     # switch to relevant problem
     if usr_input == 1:
-        problem1()
+        problem1_tester()
     elif usr_input == 2:
-        problem2()
+        problem2_tester()
     elif usr_input == 3:
-        problem5()
+        problem5_tester()
 
     return
 
