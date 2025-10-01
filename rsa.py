@@ -1,51 +1,7 @@
 import random
 from random_prime_generator import generate_random_prime
 from primality import modexp
-from gcd import gcd
-
-# modular inverse calculation
-# inputs:
-#   a, b
-# pre-conditions:
-#   a and b are positive integers
-#   a and b are relatively prime (gcd(a,b) = 1)
-#   base
-# output:
-#   y
-# relationship:
-#   a * y = 1 (mod b), 1 <= y < b
-# pseudocode:
-#   call extended gcd to find x, y s.t. b * x + a * y = gcd(a, b)
-#   if y is negative, add b until it's positive
-#   return y
-
-def find_inverse(a, b):
-    x, y, d = e_gcd(b, a)
-    while y < 0:
-        y = y + b
-    return y
-
-# extended gcd
-# inputs:
-#   x, y
-# pre-conditions:
-#   x and y are positive integers
-#   x > y
-# outputs:
-#   a, b, d
-# relationship:
-#    (a * x) + (b * y) = d, and gcd(x, y) = d
-# pseudocode:
-#   if y == 0 (base case)
-#       return 1, 0, x
-#   x2, y2, d = e_gcd(y, x mod y)
-#   return y2, x2 - (floor(x/y) * y2), d
-
-def e_gcd(x, y):
-    if y == 0:
-        return 1, 0, x
-    x2, y2, d = e_gcd(y, x % y)
-    return y2, x2 - (x//y * y2), d
+from modular_operations import *
 
 # problem 4 main function
 # inputs:
