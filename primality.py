@@ -5,7 +5,7 @@ import random
 # modexp(base, exp, mod)
 #   Input: base (integer), exp (integer), mod (integer)
 #   Output: integer - (base^exp) mod mod
-#   Relationship:
+#   Relationship: computes (base^exp) mod mod using exponentiation by squaring
 #   Precondition: exp >= 0, mod > 0
 #   result = 1
 #   base = base mod mod
@@ -19,7 +19,7 @@ import random
 # primality(N)
 #   Input: N (integer)
 #   Output: string ("yes" or "no") - is N prime?
-#   Relationship:
+#   Relationship: conducts a single iteration of the Fermat primality test
 #   Precondition: N > 0
 #   if N == 2 
 #       return "yes"
@@ -34,7 +34,7 @@ import random
 # primality2(N, k)
 #   Input: N (integer), k (integer)
 #   Output: string ("yes" or "no") - is N prime?
-#   Relationship:
+#   Relationship: conducts k iterations of the Fermat primality test
 #   Precondition: N > 0, k > 0
 #   if N == 2
 #       return "yes"
@@ -49,7 +49,7 @@ import random
 # primality3(N, k)
 #   Input: N (integer), k (integer)
 #   Output: string ("yes" or "no") - is N prime?
-#   Relationship:
+#   Relationship: conducts initial checks for small "known" primes, then conducts k iterations of the Fermat primality test
 #   Precondition: N > 0, k > 0
 #   if N <= 1 
 #       return "no"

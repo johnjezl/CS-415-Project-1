@@ -5,7 +5,7 @@ from fraction import Fraction
 # hsum(n)
 #   Input: n (integer)
 #   Output: Fraction - the harmonic sum of the first n elements
-#   Relationship: 
+#   Relationship:  H(n) = 1 + 1/2 + 1/3 + ... + 1/n
 #   Precondition: n > 0
 #   if n <= 0 
 #       raise exception
@@ -18,7 +18,7 @@ from fraction import Fraction
 # hdigit(n, m)
 #   Input: n (integer), m (integer)
 #   Output: integer - the m-th digit of the n-th harmonic number (0-9)
-#   Relationship: 
+#   Relationship:  returns the m-th digit after the decimal point in the n-th harmonic number
 #   Precondition: n > 0, m > 0
 #   if n <= 0 or m <= 0
 #       raise exception

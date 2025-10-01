@@ -7,7 +7,7 @@ from primality import primality3
 #   Input: n (integer, number of bits), k (integer, # of test iterations)
 #   Output: integer (n-bit prime number)
 #   Pre-Confdtion: n >= 2, k > 0
-#   Relationship:
+#   Relationship: generates a random n-bit prime number using the primality3 test with k iterations
 #   while True
 #     binary_string = empty string
 #     for i from 0 to n-3
