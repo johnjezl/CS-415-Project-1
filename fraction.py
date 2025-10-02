@@ -1,4 +1,4 @@
-from modular_operations import gcd
+from gcd import gcd
 
 # Psuedocode for Fraction class methods:
 #
@@ -112,7 +112,7 @@ class Fraction:
         if (p == 0):
             return 0, 1
 
-        g = gcd(p, q)
+        g = gcd(abs(p), abs(q))
 
         p = p // g
         q = q // g
